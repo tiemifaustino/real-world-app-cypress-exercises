@@ -1,0 +1,14 @@
+{
+  "name": "real-world-app-cypress-excercises",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tiemi Faustino",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "cypress": "^15.7.0"
+  }
+}

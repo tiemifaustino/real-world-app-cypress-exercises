@@ -32,7 +32,7 @@
 |                      | 3 - Inserir Password válido (`s3cret`)                                     |
 |                      | 4 - Clicar no botão "Sign in"                                              |
 | Resultado esperado   | Usuário conecta com sucesso                                                |
-|                      | Usuário é redirecionado para a tela principal (Home)                       |
+| Resultado obtido     | Usuário é redirecionado para a tela principal (Home)                       |
 | Suite de teste       | Tela de login                                                              |
 | Ambiente de teste    | Web - Google Chrome 144.0.7559.110 (64 bits) - Windows 11                  |
 | Resultado encontrado | O mesmo que o resultado esperado                                           |

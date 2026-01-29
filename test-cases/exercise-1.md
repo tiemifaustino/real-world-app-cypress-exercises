@@ -25,17 +25,16 @@
 # Casos de Teste
 
 | CT-01                | Login com e-mail e senha válidos                                           |
-|----------------------|---------------------------------------------------------------------------|
+|----------------------|----------------------------------------------------------------------------|
 | Pré-condições        | Usuário tem acesso ao sistema                                              |
 | Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)              |
 |                      | 2 - Inserir Username válido (`Heath93`)                                    |
 |                      | 3 - Inserir Password válido (`s3cret`)                                     |
 |                      | 4 - Clicar no botão "Sign in"                                              |
-| Resultado esperado   | Usuário conecta com sucesso                                                |
-| Resultado obtido     | Usuário é redirecionado para a tela principal (Home)                       |
-| Suite de teste       | Tela de login                                                              |
-| Ambiente de teste    | Web - Google Chrome 144.0.7559.110 (64 bits) - Windows 11                  |
+| Resultado esperado   | Usuário conecta com sucesso e é redirecionado para a tela principal (Home) |
 | Resultado encontrado | O mesmo que o resultado esperado                                           |
 | Status               | ✅ Passou                                                                  |
+| Suite de teste       | Tela de login                                                              |
+| Ambiente de teste    | Web - Google Chrome 144.0.7559.110 (64 bits) - Windows 11                  |
 
 <br>

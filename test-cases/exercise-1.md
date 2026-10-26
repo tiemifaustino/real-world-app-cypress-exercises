@@ -24,7 +24,7 @@
 
 # Casos de Teste
 
-| CT-01                | Login com e-mail e senha válidos                                           |
+| CT-01                | Login com Username e Password válidos                                         |
 |----------------------|----------------------------------------------------------------------------|
 | Pré-condições        | Usuário tem acesso ao sistema                                              |
 | Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)              |
@@ -39,7 +39,7 @@
 
 <br>
 
-| CT-02                | Login com credenciais inválidas                                            |
+| CT-02                | Login com Username inválido                                                |
 |----------------------|----------------------------------------------------------------------------|
 | Pré-condições        | Usuário não possui acesso ao sistema (Username inexistente)                |
 | Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)              |
@@ -61,7 +61,7 @@
 |                      | Página de cadastro está disponível e acessível                                        |
 | Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)                         |
 |                      | 2 - Clicar no link de cadastro (Don't have an account? Sign Up)                       |
-|                      | 3 - Preencher os campos `First Name`, `Last Name`, `Username`                         |
+|                      | 3 - Preencher os campos `First Name`, `Last Name`, `Username` com dados válidos       |
 |                      | 4 - Preencher uma senha válida conforme regra do sistema nos campos                   |
 |                      |     `Password` e `Confirm password`                                                   |
 |                      | 5 - Clicar no botão "Sign up"                                                         |
@@ -73,3 +73,18 @@
 
 <br>
 
+| CT-04                | Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro     |
+|----------------------|---------------------------------------------------------------------------------------|
+| Pré-condições        | Página de cadastro está disponível e acessível                                        |
+| Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)                         |
+|                      | 2 - Clicar no link de cadastro (Don't have an account? Sign Up)                       |
+|                      | 3 - Clicar dentro do campo `First Name`                         |
+|                      | 4 - Clicar fora do campo                   |
+|                      | 5 - Clicar no botão "Sign up"                                                         |
+| Resultado esperado   | Usuário deve ser cadastrado com sucesso e redirecionado para a tela de login          |
+| Resultado encontrado | O mesmo que o resultado esperado                                                      |
+| Status               | ✅ Passou                                                                             |
+| Suite de teste       | Cadastro de usuário                                                                   |
+| Ambiente de teste    | Web - Google Chrome 144.0.7559.110 (64 bits) - Windows 11                             |
+
+<br>

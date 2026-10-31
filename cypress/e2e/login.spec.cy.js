@@ -1,4 +1,4 @@
-import userData from '../fixtures/user-data.json';
+import userData from '../fixtures/userData.json';
 
 describe('Exercise-1', () => {
   const selectorsList = {
@@ -11,7 +11,7 @@ describe('Exercise-1', () => {
   };
 
   it('CT-01	Login com Username e Password válidos', () => {
-    cy.visit('http://localhost:3000/signin');
+    cy.visit('/signin');
     cy.get(selectorsList.signInUsername).type(userData.userSuccess.username);
     cy.get(selectorsList.signInPassword).type(userData.userSuccess.password);
     cy.get(selectorsList.signInSubmit).click();
@@ -20,7 +20,7 @@ describe('Exercise-1', () => {
   });
 
   it('CT-02	Login com Username inválido', () => {
-    cy.visit('http://localhost:3000/signin');
+    cy.visit('/signin');
     cy.intercept('POST', '**/login').as('login');
     cy.get(selectorsList.signInUsername).type(userData.userFail.username);
     cy.get(selectorsList.signInPassword).type(userData.userFail.password);

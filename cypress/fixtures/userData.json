@@ -1,7 +1,9 @@
 {
   "userSuccess": {
     "username": "Heath93",
-    "password": "s3cret"
+    "password": "s3cret",
+    "firstName": "Ted",
+    "lastName": "Parisian"
   },
   "userFail": {
     "username": "test2026",

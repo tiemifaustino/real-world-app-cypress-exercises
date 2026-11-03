@@ -15,6 +15,10 @@ class SignUpPage {
   }
 
   accessSignUpPage() {
+    cy.visit('/signup');
+  }
+
+  clickLinkSignUp() {
     cy.get(this.selectorsList().signUpLink).click();
   }
 
@@ -69,6 +73,70 @@ class SignUpPage {
     });
 
     cy.get(this.selectorsList().submitButton).should('be.disabled');
+  }
+
+  fillIncompleteForm(missingField, data) {
+    if (missingField !== 'firstName') {
+      cy.get(this.selectorsList().firstName).find('input').type(data.firstName);
+    }
+
+    if (missingField !== 'lastName') {
+      cy.get(this.selectorsList().lastName).find('input').type(data.lastName);
+    }
+
+    if (missingField !== 'username') {
+      cy.get(this.selectorsList().username).find('input').type(data.username);
+    }
+
+    if (missingField !== 'password') {
+      cy.get(this.selectorsList().password).find('input').type(data.password);
+    }
+
+    if (missingField !== 'confirmPassword') {
+      cy.get(this.selectorsList().confirmPassword)
+        .find('input')
+        .type(data.password);
+    }
+
+    // Entra e sai do campo vazio para o erro aparecer
+    cy.get(this.selectorsList()[missingField]).find('input').focus().blur();
+  }
+
+  checkMissingFieldMessageError(missingField) {
+    if (missingField === 'firstName') {
+      cy.get(this.selectorsList()[missingField]).should(
+        'contain',
+        'First Name is required'
+      );
+    }
+
+    if (missingField === 'lastName') {
+      cy.get(this.selectorsList()[missingField]).should(
+        'contain',
+        'Last Name is required'
+      );
+    }
+
+    if (missingField === 'username') {
+      cy.get(this.selectorsList()[missingField]).should(
+        'contain',
+        'Username is required'
+      );
+    }
+
+    if (missingField === 'password') {
+      cy.get(this.selectorsList()[missingField]).should(
+        'contain',
+        'Enter your password'
+      );
+    }
+
+    if (missingField === 'confirmPassword') {
+      cy.get(this.selectorsList()[missingField]).should(
+        'contain',
+        'Confirm your password'
+      );
+    }
   }
 }
 

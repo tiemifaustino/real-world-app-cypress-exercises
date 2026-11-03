@@ -12,7 +12,7 @@ const { userSuccess } = userData;
 describe('Exercise-1', () => {
   it('CT-03	Cadastro de um novo usuário com informações válidas', () => {
     loginPage.accessLoginPage();
-    signUpPage.accessSignUpPage();
+    signUpPage.clickLinkSignUp();
     signUpPage.checkSignUpPage();
     signUpPage.fillForm(
       chance.name(),
@@ -23,10 +23,28 @@ describe('Exercise-1', () => {
     signUpPage.checkSignUp();
   });
 
-  it.only('CT-04	Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro', () => {
+  it('CT-04	Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro', () => {
     loginPage.accessLoginPage();
-    signUpPage.accessSignUpPage();
+    signUpPage.clickLinkSignUp();
     signUpPage.checkSignUpPage();
     signUpPage.checkErrorMessages();
+  });
+
+  it('CT-05 Tentativa de cadastro de um novo usuário com informações incompletas', () => {
+    const values = [
+      'firstName',
+      'lastName',
+      'username',
+      'password',
+      'confirmPassword',
+    ];
+    loginPage.accessLoginPage();
+    signUpPage.clickLinkSignUp();
+    signUpPage.checkSignUpPage();
+    values.forEach((value) => {
+      signUpPage.accessSignUpPage();
+      signUpPage.fillIncompleteForm(value, userSuccess);
+      signUpPage.checkMissingFieldMessageError(value);
+    });
   });
 });

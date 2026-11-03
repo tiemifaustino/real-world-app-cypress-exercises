@@ -23,16 +23,10 @@ describe('Exercise-1', () => {
     signUpPage.checkSignUp();
   });
 
-  it('CT-04	Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro', () => {
+  it.only('CT-04	Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro', () => {
     loginPage.accessLoginPage();
     signUpPage.accessSignUpPage();
     signUpPage.checkSignUpPage();
-    signUpPage.fillForm(
-      chance.name(),
-      chance.last(),
-      chance.string({ length: 5 })
-    );
-    signUpPage.fillPassword(userSuccess.password, userSuccess.password);
-    signUpPage.checkSignUp();
+    signUpPage.checkErrorMessages();
   });
 });

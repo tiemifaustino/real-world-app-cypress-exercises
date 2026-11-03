@@ -38,6 +38,38 @@ class SignUpPage {
     cy.get(this.selectorsList().submitButton).click();
     cy.location('pathname').should('equal', '/signin');
   }
+
+  checkErrorMessages() {
+    const fields = [
+      {
+        selector: this.selectorsList().firstName,
+        message: 'First Name is required',
+      },
+      {
+        selector: this.selectorsList().lastName,
+        message: 'Last Name is required',
+      },
+      {
+        selector: this.selectorsList().username,
+        message: 'Username is required',
+      },
+      {
+        selector: this.selectorsList().password,
+        message: 'Enter your password',
+      },
+      {
+        selector: this.selectorsList().confirmPassword,
+        message: 'Confirm your password',
+      },
+    ];
+
+    fields.forEach(({ selector, message }) => {
+      cy.get(selector).find('input').focus().blur();
+      cy.get(selector).should('contain', message);
+    });
+
+    cy.get(this.selectorsList().submitButton).should('be.disabled');
+  }
 }
 
 export default SignUpPage;

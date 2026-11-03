@@ -73,37 +73,65 @@
 
 <br>
 
-| CT-04                | Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro      |
+| CT-04                | Exibição de mensagens de erro nos campos de preenchimento obrigatório do cadastro  |
+| -------------------- | ---------------------------------------------------------------------------------- |
+| Pré-condições        | Página de cadastro está disponível e acessível                                     |
+| Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)                      |
+|                      | 2 - Clicar no link de cadastro (Don't have an account? Sign Up)                    |
+|                      | 3 - Clicar dentro do campo `First Name`                                            |
+|                      | 4 - Clicar fora do campo                                                           |
+|                      | 5 - Observar que a mensagem de erro "First Name is required" é exibida em vermelho |
+|                      | abaixo do campo                                                                    |
+|                      | 6 - Clicar dentro do campo `Last Name`                                             |
+|                      | 7 - Clicar fora do campo                                                           |
+|                      | 8 - Observar que a mensagem de erro "Last Name is required" é exibida em vermelho  |
+|                      | abaixo do campo                                                                    |
+|                      | 9 - Clicar dentro do campo `Username`                                              |
+|                      | 10 - Clicar fora do campo                                                          |
+|                      | 11 - Observar que a mensagem de erro "Username is required" é exibida em vermelho  |
+|                      | abaixo do campo                                                                    |
+|                      | 12 - Clicar dentro do campo `Password`                                             |
+|                      | 13 - Clicar fora do campo                                                          |
+|                      | 14 - Observar que a mensagem de erro "Enter your password" é exibida em vermelho   |
+|                      | abaixo do campo                                                                    |
+|                      | 15 - Clicar dentro do campo `Confirm Password`                                     |
+|                      | 16 - Clicar fora do campo                                                          |
+|                      | 17 - Observar que a mensagem de erro "Confirm your password" é exibida em vermelho |
+|                      | abaixo do campo                                                                    |
+|                      | 18 - Observar que o botão `SIGN UP` permanece desabilitado                         |
+| Resultado esperado   | Devem ser exibidas mensagens de erro ao deixar os campos obrigatórios vazios,      |
+|                      | e o botão `SIGN UP` deve permanecer desabilitado                                   |
+| Resultado encontrado | O mesmo que o resultado esperado                                                   |
+| Status               | ✅ Passou                                                                          |
+| Suite de teste       | Cadastro de usuário                                                                |
+| Ambiente de teste    | Web - Google Chrome 156.0.8078.80 (64 bits) - Windows 11                           |
+
+<br>
+
+| CT-05                | Tentativa de cadastro de um novo usuário com informações incompletas                   |
 | -------------------- | -------------------------------------------------------------------------------------- |
-| Pré-condições        | Página de cadastro está disponível e acessível                                         |
+| Pré-condições        | Usuário não possui cadastro prévio no sistema                                          |
+|                      | Página de cadastro está disponível e acessível                                         |
 | Passo a passo        | 1 - Acessar tela de login (URL: http://localhost:3000/signin)                          |
 |                      | 2 - Clicar no link de cadastro (Don't have an account? Sign Up)                        |
-|                      | 3 - Clicar dentro do campo `First Name`                                                |
-|                      | 4 - Clicar fora do campo                                                               |
-|                      | 5 - Observar que a mensagem de erro "First Name is required" é exibida em vermelho     |
+|                      | 3 - Preencher os campos `First Name`, `Last Name` e `Username` com dados válidos       |
+|                      | 4 - Preencher uma senha válida conforme regra do sistema no campo `Password`           |
+|                      | 5 - Deixar o campo `Confirm Password` vazio                                            |
+|                      | 6 - Clicar dentro do campo `Confirm Password` e clicar fora                            |
+|                      | 7 - Observar que a mensagem de erro "Confirm your password" é exibida em vermelho      |
 |                      | abaixo do campo                                                                        |
-|                      | 6 - Clicar dentro do campo `Last Name`                                                 |
-|                      | 7 - Clicar fora do campo                                                               |
-|                      | 8 - Observar que a mensagem de erro "Last Name is required" é exibida em vermelho      |
-|                      | abaixo do campo                                                                        |
-|                      | 9 - Clicar dentro do campo `Username`                                                  |
-|                      | 10 - Clicar fora do campo                                                              |
-|                      | 11 - Observar que a mensagem de erro "Username is required" é exibida em vermelho      |
-|                      | abaixo do campo                                                                        |
-|                      | 12 - Clicar dentro do campo `Password`                                                 |
-|                      | 13 - Clicar fora do campo                                                              |
-|                      | 14 - Observar que a mensagem de erro "Enter your password" é exibida em vermelho       |
-|                      | abaixo do campo                                                                        |
-|                      | 15 - Clicar dentro do campo `Confirm Password`                                         |
-|                      | 16 - Clicar fora do campo                                                              |
-|                      | 17 - Observar que a mensagem de erro "Confirm your password" é exibida em vermelho     |
-|                      | abaixo do campo                                                                        |
-|                      | 18 - Observar que o botão `SIGN UP` permanece desabilitado                             |
-| Resultado esperado   | Devem ser exibidas mensagens de erro ao tentar registrar um novo usuário sem preencher |
-|                      | todas as informações obrigatórias, e o botão `SIGN UP` deve permanecer desabilitado    |
+|                      | 8 - Observar que o botão `SIGN UP` permanece desabilitado                              |
+|                      | 9 - Tentar clicar no botão `SIGN UP`                                                   |
+| Resultado esperado   | O sistema não deve permitir o cadastro com informações incompletas: o botão `SIGN UP`  |
+|                      | deve permanecer desabilitado, o usuário deve permanecer na tela de cadastro e a        |
+|                      | mensagem de erro do campo vazio deve ser exibida                                       |
 | Resultado encontrado | O mesmo que o resultado esperado                                                       |
 | Status               | ✅ Passou                                                                              |
 | Suite de teste       | Cadastro de usuário                                                                    |
 | Ambiente de teste    | Web - Google Chrome 156.0.8078.80 (64 bits) - Windows 11                               |
+| Observações          | O passo a passo usa o campo `Confirm Password` como exemplo. O mesmo comportamento     |
+|                      | vale para os demais campos obrigatórios (`First Name`, `Last Name`, `Username` e       |
+|                      | `Password`): ao deixar qualquer um vazio, a mensagem de erro correspondente é exibida, |
+|                      | o botão `SIGN UP` permanece desabilitado e o cadastro não é concluído                  |
 
 <br>
